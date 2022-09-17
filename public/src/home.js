@@ -3,7 +3,11 @@ function getTotalBooksCount(books) {
 }
 
 function getTotalAccountsCount(accounts) {
-  return accounts.length;
+   const list = accounts.reduce((account) => {
+    account = accounts.map((account) => account);
+    return accounts.length;
+    }, 0);
+    return list;
 }
 
 function getBooksBorrowedCount(books) {
