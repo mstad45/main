@@ -1,6 +1,4 @@
-function getTotalBooksCount(books) {
-  return books.length;
-}
+const getTotalBooksCount = books => books.length;
 
 function getTotalAccountsCount(accounts) {
    const list = accounts.reduce((account) => {
