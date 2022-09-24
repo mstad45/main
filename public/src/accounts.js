@@ -1,13 +1,13 @@
 function findAccountById(accounts, id) {
   let foundId = accounts.find((account) => account.id === id);
-  return foundId;
+  return foundId; // returns account with matching ID
 }
 
 function sortAccountsByLastName(accounts) {
   accounts.sort((accountA, accountB) =>
     accountA.name.last.toLowerCase() > accountB.name.last.toLowerCase() ? 1 : -1
   );
-  return accounts;
+  return accounts; //returns array of accounts sorted by last name
 }
 
 function getTotalNumberOfBorrows(account, books) {

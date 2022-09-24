@@ -1,11 +1,11 @@
-const getTotalBooksCount = books => books.length;
+const getTotalBooksCount = books => books.length; //returns the number of books in the array
 
 function getTotalAccountsCount(accounts) {
    const list = accounts.reduce((account) => {
     account = accounts.map((account) => account);
     return accounts.length;
     }, 0);
-    return list;
+    return list; // returns the number of accounts in the array
 }
 
 function getBooksBorrowedCount(books) {
@@ -13,7 +13,7 @@ function getBooksBorrowedCount(books) {
     books.forEach(book => {
     if (!book.borrows[0].returned) borrowedBooks++;
   });
-  return borrowedBooks;
+  return borrowedBooks; // returns the number of borrowed books in the array
 }
 
 function getMostCommonGenres(books) {
