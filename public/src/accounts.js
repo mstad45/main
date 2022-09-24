@@ -22,20 +22,29 @@ function getTotalNumberOfBorrows(account, books) {
   return totalBorrows;
 }
 
-function getBooksPossessedByAccount(account, books, authors) {
-  const inPossesion = [];
-  books.map((book) => {
-    book.borrows.map((borrow) => {
-      authors.map((author) => {
-        if (author.id === book.authorId) book["author"] = author;
-      });
-      if (borrow.returned === false && borrow.id === account.id) {
-        inPossesion.push(book);
-      }
-    });
-  });
-  return inPossesion;
+//helper function returns author object
+function _getAuthor(book, authors) {
+  const author = authors.find((author) => author.id === book.authorId);
+  return author;
 }
+
+function getBooksPossessedByAccount(account, books, authors) {
+const borrowedBooks= [];
+books.forEcach((book) => {
+  let bookBorrows = book.borrows;
+  bookBorrows.forEach((borrow) => {
+    if (borrow.id === account.id && !borrow.returned) {
+      borrowedBooks.push(book);
+    }
+  });
+});
+let result = BorrowedBooks.map((book) => {
+  return { ...book, author: _getAuthor(book, authers) };
+});
+return result;
+}
+
+  
 
 module.exports = {
   findAccountById,
